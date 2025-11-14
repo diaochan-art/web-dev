@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CV Fakih Abdul Aziz</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<div class="container">
-  <aside class="sidebar">
-    <img src="foto.jpg" alt="Foto Fakih" class="foto">
-  </aside>
+  <!-- LOADING SCREEN -->
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+    <p>Loading CV Fakih Abdul Aziz... 🚀</p>
+  </div>
 
-  <main class="content">
-    <h1>Halo, Saya [FAKIH ABDUL AZIZ]</h1>
-    <p class="tagline">Saya sedang belajar jadi programmer! 🚀</p>
+  <!-- DARK MODE TOGGLE -->
+  <button id="darkModeToggle" class="dark-toggle">🌙 Dark Mode</button>
 
-    <p><strong>Email:</strong> <a href="mailto:fakihabd54@gmail.com">fakihabd54@gmail.com</a></p>
-    <p><strong>IG:</strong> <a href="https://instagram.com/fakihabd54" target="_blank">@fakihabd54</a></p>
-    <p><strong>Hobi:</strong> Ngoding 🤖, main game 🎮, makan mie 🌶️, ngerjain GROK 😈</p>
+  <div class="container">
+    <!-- SIDEBAR FOTO -->
+    <div class="sidebar">
+      <img src="foto.jpg" alt="Fakih Abdul Aziz" class="foto"/>
+    </div>
 
-    <h2>Skill Saya</h2>
-    <ul>
-      <li>HTML & CSS Dasar 🔥</li>
-      <li>Belajar JS Minggu Depan</li>
-      <li>Semangat Ngoding 24/7 ⚡</li>
-    </ul>
+    <!-- CONTENT -->
+    <div class="content">
+      <h1>Fakih Abdul Aziz</h1>
+      <p class="tagline">Saya sedang belajar jadi programmer! 💻</p>
 
-    <h2>Pendidikan</h2>
-    <p>SMA Negeri [1] - Lulus 2024-2025</p>
-    <p>Belajar Web Dev Otodidak - 2025</p>
-   <div class="kontak">
-  <h2>Kontak Saya</h2>
-  <p>Kirim pesan langsung, saya balas cepet! 🚀</p>
-  
-  <form action="https://formspree.io/f/xpwaaakp" method="POST" class="contact-form">
-    <input type="text" name="name" placeholder="Nama Anda" required>
-    <input type="email" name="email" placeholder="Email Anda" required>
-    <textarea name="message" placeholder="Pesan Anda (contoh: 'Mau hire buat project web!')" required></textarea>
-    <button type="submit">Kirim Pesan</button>
-  </form>
+      <h2>Tentang Saya</h2>
+      <p>Email: <a href="mailto:fakihabd54@gmail.com">fakihabd54@gmail.com</a></p>
+      <p>IG: <a href="https://instagram.com/fakihabd54" target="_blank">@fakihabd54</a></p>
+      <p>Hobi: Ngoding 🧑‍💻, main game 🎮, makan mie 🍜, ngerjain GROK 🤖</p>
 
-  <a href="mailto:fakihabd54@gmail.com" class="hire-btn">📧 Hire Me Langsung!</a>
-</div>
+      <h2>Skill Saya</h2>
+      <ul>
+        <li>HTML & CSS Dasar 🔥</li>
+        <li>Belajar JS Minggu Depan ⚡</li>
+        <li>Semangat Ngoding 24/7 🚀</li>
+      </ul>
 
-<!-- TAMBAH JS DI BAWAH -->
-<script src="script.js"></script>
+      <h2>Pendidikan</h2>
+      <p>SMA Negeri [1] - Lulus 2024-2025 🎓</p>
+      <p>Belajar Web Dev Otodidak - 2025 🚀</p>
+
+      <!-- KONTAK -->
+      <div class="kontak">
+        <h2>Kontak Saya</h2>
+        <p>Kirim pesan langsung, saya balas cepet! 🚀</p>
+        
+        <form action="https://formspree.io/f/xpwaaakp" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Nama Anda" required>
+          <input type="email" name="email" placeholder="Email Anda" required>
+          <textarea name="message" placeholder="Pesan Anda (contoh: 'Mau hire buat project web!')" required></textarea>
+          <button type="submit">Kirim Pesan</button>
+        </form>
+
+        <a href="mailto:fakihabd54@gmail.com" class="hire-btn">📧 Hire Me Langsung!</a>
+        
+        <button onclick="window.print()" class="hire-btn" style="margin-top: 20px; background: #8e2de2;">
+          📄 Download CV sebagai PDF
+        </button>
+
+        <button onclick="shareCV()" class="hire-btn" style="margin-top: 15px; background: #667eea;">
+          📤 Share CV Ini!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
