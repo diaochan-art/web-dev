@@ -246,4 +246,12 @@ body.dark-mode .dark-toggle { background: #eee; color: #1a1a2e; }
   li { margin: 10px auto; max-width: 80%; }
   .kontak { padding: 30px 15px; }
   .contact-form { padding: 20px; }
+  /* TAMBAHAN BIAR CARD PROJECT LEBIH GLOW (OPTIONAL) */
+.project-card {
+  transition: 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(74,0,224,0.25);
+}
 }
