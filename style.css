@@ -1,4 +1,4 @@
-/* CV FINAL: HARI 1 + HARI 2 GABUNG — 1 FILE, 1 CV, 100% NENDANG! */
+/* CV FINAL: HARI 1 + HARI 2 + FORM KONTAK — 1 FILE, 100% NENDANG! */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -96,6 +96,98 @@ li:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(74,0,224,0.4
 }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(74,0,224,0.5); }
 
+/* KONTAK FORM — GABUNG DENGAN TEMA CV */
+.kontak {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+.kontak h2 {
+  color: #4a00e0;
+  margin-bottom: 10px;
+}
+
+.kontak p {
+  color: #666;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(74,0,224,0.15);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: 0.3s;
+  background: #f9f9ff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #8e2de2;
+  box-shadow: 0 0 12px rgba(142,45,226,0.3);
+  background: white;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 16px;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 6px 20px rgba(74,0,224,0.4);
+}
+
+.contact-form button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(74,0,224,0.5);
+}
+
+.hire-btn {
+  display: inline-block;
+  padding: 16px 35px;
+  background: #4a00e0;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 17px;
+  transition: 0.3s;
+  box-shadow: 0 6px 20px rgba(74,0,224,0.4);
+}
+
+.hire-btn:hover {
+  background: #3a00b8;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(74,0,224,0.5);
+}
+
 /* RESPONSIF HP */
 @media (max-width: 768px) {
   .container { flex-direction: column; }
@@ -103,29 +195,8 @@ li:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(74,0,224,0.4
   .foto { width: 90px; height: 90px; }
   h1 { font-size: 24px; }
   li { margin: 10px auto; max-width: 80%; }
-  .contact-form {
-  max-width: 500px;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.contact-form input, .contact-form textarea {
-  padding: 12px;
-  border: 2px solid #6e48aa;
-  border-radius: 8px;
-  font-size: 16px;
-}
-.contact-form button {
-  padding: 12px;
-  background: #9c88ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.contact-form button:hover {
-  background: #6e48aa;
-}
+  
+  .kontak { padding: 30px 15px; }
+  .contact-form { padding: 20px; }
+  .contact-form input, .contact-form textarea { font-size: 15px; }
 }
