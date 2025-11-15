@@ -254,4 +254,49 @@ body.dark-mode .dark-toggle { background: #eee; color: #1a1a2e; }
   transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(74,0,224,0.25);
 }
+/* FIX RESPONSIVE HP — TAMBAHIN DI AKHIR style.css */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .sidebar {
+    min-width: 100%;
+    padding: 30px 20px;
+    border-radius: 0;
+  }
+  .content {
+    min-width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .foto {
+    width: 100px; height: 100px;
+  }
+  h1 { font-size: 24px; }
+  .kontak { padding: 20px; }
+  .contact-form { 
+    padding: 20px; 
+    max-width: 100%; 
+  }
+  .hire-btn, .btn {
+    display: block;
+    width: 90%;
+    margin: 15px auto;
+    text-align: center;
+  }
+  li { 
+    margin: 10px auto; 
+    max-width: 90%; 
+  }
+  /* ABOUT & PROJECTS FIX */
+  .about-container, .project-grid {
+    padding: 20px;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
 }
