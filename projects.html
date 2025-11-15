@@ -4,87 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects - Fakih Abdul Aziz</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0; }
-    .project-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: 0.3s; }
-    .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(74,0,224,0.2); }
-    .project-img { width: 100%; height: 180px; background: #ddd; display: flex; align-items: center; justify-content: center; font-style: italic; color: #666; }
-    .project-content { padding: 20px; }
-    .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
-    .tech-tag { background: #e0e7ff; color: #4a00e0; padding: 5px 12px; border-radius: 50px; font-size: 13px; }
-    .live-btn { background: #10b981; }
-    .code-btn { background: #6366f1; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <div id="loader" class="loader"><div class="spinner"></div><p>Loading Projects... 🚀</p></div>
   <button id="darkModeToggle" class="dark-toggle">🌙 Dark Mode</button>
 
-  <div class="container" style="max-width: 1000px; margin: 40px auto;">
-    <div class="content" style="padding: 40px;">
-
-      <h1 style="text-align: center; margin-bottom: 20px;">Project Gue</h1>
-      <p style="text-align: center; margin-bottom: 40px; color: #666;">Dari nol sampai live di internet — semua gue bikin sendiri!</p>
+  <div class="container">
+    <div class="sidebar">
+      <img src="assets/foto.jpg" alt="Fakih" class="foto"/>
+      <h1>Fakih Abdul Aziz</h1>
+      <p class="tagline">My Projects</p>
+    </div>
+    <div class="content">
+      <h2>🚀 Projects Gue</h2>
+      <p>Gue bikin ini dari nol!</p>
 
       <div class="project-grid">
-
-        <!-- PROJECT 1: CV INTERAKTIF -->
-        <div class="project-card">
-          <div class="project-img">📱 CV Interaktif (Screenshot)</div>
-          <div class="project-content">
-            <h3>CV Interaktif & Portfolio</h3>
-            <p>CV dengan dark mode, form kontak (kirim email otomatis), download PDF, share button, loading animasi, dan multi-halaman (About + Projects).</p>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Formspree</span>
-              <span class="tech-tag">Vercel</span>
-            </div>
-            <a href="index.html" class="btn live-btn" style="margin: 10px 5px 0 0; padding: 10px 20px; font-size: 14px;">🌐 Live Demo</a>
-            <a href="https://github.com/Fakihabd/cv-fakihabd" class="btn code-btn" target="_blank" style="margin: 10px 0 0 5px; padding: 10px 20px; font-size: 14px;">💻 Source Code</a>
-          </div>
-        </div>
-
-        <!-- PROJECT 2: COMING SOON -->
-        <div class="project-card" style="opacity: 0.7;">
-          <div class="project-img">🎮 Game Tebak Angka</div>
-          <div class="project-content">
-            <h3>Game Tebak Angka (On Progress)</h3>
-            <p>Game sederhana pake JavaScript. User tebak angka 1-100, ada hint "terlalu tinggi/rendah", skor, dan reset button.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Event Listener</span>
-              <span class="tech-tag">DOM Manipulation</span>
-            </div>
-            <button class="btn" disabled style="margin-top: 10px; background: #94a3b8;">⏳ Coming Soon</button>
-          </div>
-        </div>
-
-        <!-- PROJECT 3: COMING SOON -->
-        <div class="project-card" style="opacity: 0.7;">
-          <div class="project-img">✅ To-Do List App</div>
-          <div class="project-content">
-            <h3>To-Do List dengan localStorage</h3>
-            <p>Tambah, hapus, edit task. Data tersimpan di browser (gak ilang pas refresh). Ada fitur checklist selesai.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">localStorage</span>
-              <span class="tech-tag">Array Methods</span>
-              <span class="tech-tag">Dynamic HTML</span>
-            </div>
-            <button class="btn" disabled style="margin-top: 10px; background: #94a3b8;">⏳ Coming Soon</button>
-          </div>
-        </div>
-
+        <a href="tebak-angka/" class="project-card">
+          <h3>🎮 Game Tebak Angka</h3>
+          <p>JS DOM + localStorage skor</p>
+        </a>
+        <a href="todo-list/" class="project-card">
+          <h3>✅ To-Do List App</h3>
+          <p>CRUD + data simpan otomatis</p>
+        </a>
+        <a href="resto-landing/" class="project-card">
+          <h3>🍜 Resto Landing Page</h3>
+          <p>CSS Grid + Responsive HP</p>
+        </a>
+        <a href="kalkulator/" class="project-card">
+          <h3>🧮 Kalkulator Sederhana</h3>
+          <p>JS Event + Operasi</p>
+        </a>
       </div>
 
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="index.html" class="btn">🔙 Kembali ke CV</a>
-        <a href="about.html" class="btn" style="margin-left: 15px;">Tentang Gue</a>
-      </div>
-
+      <a href="index.html" class="btn back">🏠 Kembali ke CV</a>
     </div>
   </div>
 

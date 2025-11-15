@@ -45,7 +45,7 @@
       <p><strong>Lulus SMA 2025</strong> — Belajar Web Dev Otodidak!</p>
 
       <h2>🚀 7 Hari Ngoding Journey</h2>
-      <ul class="journey">
+      <ul>
         <li><strong>Hari 1:</strong> Mini CV + alert()</li>
         <li><strong>Hari 2:</strong> CSS Gradient + Card</li>
         <li><strong>Hari 3:</strong> JS Interaktif (Dark Mode, Share)</li>
@@ -56,16 +56,18 @@
       </ul>
 
       <h2>📩 Kontak</h2>
-      <form action="https://formspree.io/f/xpwaaakp" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Nama" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Pesan" required rows="4"></textarea>
-        <button type="submit">Kirim</button>
-      </form>
+      <div class="contact-form">
+        <form action="https://formspree.io/f/xpwaaakp" method="POST">
+          <input type="text" name="name" placeholder="Nama" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Pesan" required rows="4"></textarea>
+          <button type="submit">Kirim</button>
+        </form>
+      </div>
 
       <div class="cta">
-        <button onclick="window.print()" class="hire-btn">📄 Download PDF</button>
-        <button onclick="shareCV()" class="hire-btn share-btn">📤 Share</button>
+        <button onclick="window.print()" class="hire-btn">📄 Download CV PDF</button>
+        <button onclick="shareCV()" class="hire-btn share-btn">📤 Share Website Ini!</button>
       </div>
 
       <div class="blog-section">
@@ -77,69 +79,25 @@
 
         <div class="post-card">
           <h3>Dari Copy-Paste Jadi Dev</h3>
-          <p class="meta">15 Nov 2025 • 5 menit</p>
-          <p>Gue mulai dari nol, sekarang punya website ini!</p>
+          <p class="meta">15 Nov 2025 • 5 menit baca</p>
+          <p>Gue mulai dari CV copy-paste Grok, sekarang punya website all-in-one ini!</p>
         </div>
 
         <div class="donation">
           <p><strong>Dukung gue! ☕</strong></p>
-          <a href="https://saweria.co/fakihabd" target="_blank" class="btn">Donasi</a>
+          <a href="https://saweria.co/fakihabd" target="_blank" class="btn">Donasi via Saweria</a>
           <p><a href="https://affiliate.example.com" target="_blank" class="affiliate">Hosting Murah (Affiliate)</a></p>
         </div>
       </div>
 
       <div class="nav-buttons">
-        <a href="about.html" class="btn">📖About</a>
-        <a href="projects.html" class="btn">🚀Projects</a>
-        <a href="blog/index.html" class="btn">📝Blog</a>
+        <a href="about.html" class="btn">📖 About</a>
+        <a href="projects.html" class="btn">🚀 Projects</a>
+        <a href="blog/index.html" class="btn">📝 Blog</a>
       </div>
     </div>
   </div>
 
-  <!-- JS -->
   <script src="script.js"></script>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">🍜 Mie Fakih</div>
-    <nav class="nav">
-      <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Kontak</a>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Mie Pedas Level Dewa!</h1>
-    <p>Rasa otentik, harga mahasiswa</p>
-    <button class="cta">Pesan Sekarang</button>
-  </section>
-
-  <!-- MENU GRID -->
-  <section id="menu" class="menu-grid">
-    <h2>Menu Andalan</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Mie Goreng">
-        <h3>Mie Goreng</h3>
-        <p>Rp 15.000</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Mie Kuah">
-        <h3>Mie Kuah</h3>
-        <p>Rp 12.000</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Es Teh">
-        <h3>Es Teh</h3>
-        <p>Rp 5.000</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Mie Fakih. All rights reserved.</p>
-  </footer>
 </body>
 </html>
