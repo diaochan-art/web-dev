@@ -3,78 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV Fakih Abdul Aziz</title>
+  <meta name="description" content="7 Hari Ngoding Fakih - Portfolio + Blog Monetisasi"/>
+  <title>7 Hari Ngoding Fakih - CV + Blog</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css"/>
+
+  <!-- ADSENSE -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- LOADING SCREEN -->
+  <!-- LOADER -->
   <div id="loader" class="loader">
     <div class="spinner"></div>
-    <p>Loading CV Fakih Abdul Aziz... 🚀</p>
+    <p>Loading 7 Hari Ngoding... 🚀</p>
   </div>
 
   <!-- DARK MODE TOGGLE -->
   <button id="darkModeToggle" class="dark-toggle">🌙 Dark Mode</button>
 
   <div class="container">
-    <!-- SIDEBAR FOTO -->
+    <!-- SIDEBAR -->
     <div class="sidebar">
-      <img src="foto.jpg" alt="Fakih Abdul Aziz" class="foto"/>
+      <img src="assets/foto.jpg" alt="Fakih" class="foto"/>
+      <h1>Fakih Abdul Aziz</h1>
+      <p class="tagline">Gamer → Web Dev → Blogger</p>
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JS</span>
+        <span class="skill">Git</span>
+      </div>
     </div>
 
     <!-- CONTENT -->
     <div class="content">
-      <h1>Fakih Abdul Aziz</h1>
-      <p class="tagline">Saya sedang belajar jadi programmer! 💻</p>
+      <h2>📖 Tentang Gue</h2>
+      <p>Email: <strong>fakihabd54@gmail.com</strong> | IG: <strong>@fakihabd54</strong></p>
+      <p>Hobi: Ngoding, Main Game, Makan Mie, Ngerjain Grok 🤖</p>
+      <p><strong>Lulus SMA 2025</strong> — Belajar Web Dev Otodidak!</p>
 
-      <h2>Tentang Saya</h2>
-      <p>Email: <a href="mailto:fakihabd54@gmail.com">fakihabd54@gmail.com</a></p>
-      <p>IG: <a href="https://instagram.com/fakihabd54" target="_blank">@fakihabd54</a></p>
-      <p>Hobi: Ngoding 🧑‍💻, main game 🎮, makan mie 🍜, ngerjain GROK 🤖</p>
-
-      <h2>Skill Saya</h2>
-      <ul>
-        <li>HTML & CSS Dasar 🔥</li>
-        <li>Belajar JS Minggu Depan ⚡</li>
-        <li>Semangat Ngoding 24/7 🚀</li>
+      <h2>🚀 7 Hari Ngoding Journey</h2>
+      <ul class="journey">
+        <li><strong>Hari 1:</strong> Mini CV + alert()</li>
+        <li><strong>Hari 2:</strong> CSS Gradient + Card</li>
+        <li><strong>Hari 3:</strong> JS Interaktif (Dark Mode, Share)</li>
+        <li><strong>Hari 4:</strong> Multi Halaman</li>
+        <li><strong>Hari 5:</strong> Responsive HP</li>
+        <li><strong>Hari 6:</strong> Deploy Vercel</li>
+        <li><strong>Hari 7:</strong> Blog Monetisasi</li>
       </ul>
 
-      <h2>Pendidikan</h2>
-      <p>SMA Negeri [1] - Lulus 2024-2025 🎓</p>
-      <p>Belajar Web Dev Otodidak - 2025 🚀</p>
+      <h2>📩 Kontak</h2>
+      <form action="https://formspree.io/f/xpwaaakp" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Nama" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Pesan" required rows="4"></textarea>
+        <button type="submit">Kirim</button>
+      </form>
 
-      <!-- KONTAK -->
-      <div class="kontak">
-        <h2>Kontak Saya</h2>
-        <p>Kirim pesan langsung, saya balas cepet! 🚀</p>
-        
-        <form action="https://formspree.io/f/xpwaaakp" method="POST" class="contact-form">
-          <input type="text" name="name" placeholder="Nama Anda" required>
-          <input type="email" name="email" placeholder="Email Anda" required>
-          <textarea name="message" placeholder="Pesan Anda (contoh: 'Mau hire buat project web!')" required></textarea>
-          <button type="submit">Kirim Pesan</button>
-        </form>
+      <div class="cta">
+        <button onclick="window.print()" class="hire-btn">📄 Download PDF</button>
+        <button onclick="shareCV()" class="hire-btn share-btn">📤 Share</button>
+      </div>
 
-        <a href="mailto:fakihabd54@gmail.com" class="hire-btn">📧 Hire Me Langsung!</a>
-       <div style="text-align: center; margin-top: 40px;">
-  <a href="about.html" class="btn">📖 About Me</a><br><br>
-  <a href="projects.html" class="btn">🚀 My Projects</a><br><br>
-  <button onclick="window.print()" class="hire-btn">📄 Download CV sebagai PDF</button><br><br>
-  <button onclick="shareCV()" class="hire-btn" style="background: #667eea;">📤 Share CV Ini!</button>
-</div>
-        
-        <button onclick="window.print()" class="hire-btn" style="margin-top: 20px; background: #8e2de2;">
-          📄 Download CV sebagai PDF
-        </button>
+      <div class="blog-section">
+        <h2>📝 Blog Gue</h2>
+        <div class="ad-banner">
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXX" data-ad-slot="1234567890" data-ad-format="auto"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
-        <button onclick="shareCV()" class="hire-btn" style="margin-top: 15px; background: #667eea;">
-          📤 Share CV Ini!
-        </button>
+        <div class="post-card">
+          <h3>Dari Copy-Paste Jadi Dev</h3>
+          <p class="meta">15 Nov 2025 • 5 menit</p>
+          <p>Gue mulai dari nol, sekarang punya website ini!</p>
+        </div>
+
+        <div class="donation">
+          <p><strong>Dukung gue! ☕</strong></p>
+          <a href="https://saweria.co/fakihabd" target="_blank" class="btn">Donasi</a>
+          <p><a href="https://affiliate.example.com" target="_blank" class="affiliate">Hosting Murah (Affiliate)</a></p>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="#" class="btn">About</a>
+        <a href="#" class="btn">Projects</a>
+        <a href="#" class="btn">Blog</a>
       </div>
     </div>
   </div>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>

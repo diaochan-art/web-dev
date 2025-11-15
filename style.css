@@ -1,302 +1,55 @@
-/* CV FINAL: HARI 1 + HARI 2 + FORM + DARK MODE + LOADING — 1 FILE, 100% NENDANG! */
+/* style.css - 7 Hari Ngoding Fakih */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Segoe UI', Arial; background: linear-gradient(135deg, #667eea, #764ba2); min-height:100vh; color:#333; transition:0.3s; }
+body.dark-mode { background:#121212; color:#eee; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+.container { max-width:1100px; margin:40px auto; background:white; border-radius:25px; overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.15); display:flex; flex-wrap:wrap; }
+body.dark-mode .container { background:#1e1e1e; }
 
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  padding: 20px;
-}
+.sidebar { flex:1; min-width:280px; background:linear-gradient(135deg,#8e2de2,#4a00e0); padding:50px 30px; text-align:center; color:white; }
+.foto { width:140px; height:140px; border-radius:50%; border:6px solid rgba(255,255,255,0.4); object-fit:cover; }
+.sidebar h1 { margin:20px 0 10px; font-size:28px; }
+.tagline { font-size:16px; opacity:0.9; }
+.skills { margin-top:20px; }
+.skill { display:inline-block; background:white; color:#4a00e0; padding:8px 16px; border-radius:50px; margin:6px 4px; font-size:13px; font-weight:bold; }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  display: flex;
-  flex-wrap: wrap;
-}
+.content { flex:2; min-width:300px; padding:50px 40px; }
+h2 { color:#4a00e0; margin:30px 0 15px; font-size:24px; position:relative; }
+h2::after { content:''; position:absolute; bottom:-8px; left:0; width:50px; height:4px; background:#8e2de2; border-radius:2px; }
+p { line-height:1.7; margin:15px 0; }
+.journey li { margin:12px 0; }
 
-/* FOTO KIRI */
-.sidebar {
-  flex: 1;
-  min-width: 250px;
-  background: #4a00e0;
-  padding: 40px;
-  text-align: center;
-}
+.contact-form { background:#f8f9fa; padding:30px; border-radius:20px; margin:30px 0; }
+input, textarea { width:100%; padding:14px; margin:12px 0; border:1px solid #ddd; border-radius:12px; font-size:15px; }
+button[type="submit"] { background:#4a00e0; color:white; border:none; padding:14px 30px; border-radius:50px; cursor:pointer; font-weight:bold; }
 
-.foto {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 5px solid rgba(255,255,255,0.3);
-  object-fit: cover;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  margin: 0 auto;
-}
+.cta { text-align:center; margin:40px 0; }
+.hire-btn, .share-btn { background:linear-gradient(135deg,#f59e0b,#d97706); color:white; padding:14px 30px; border-radius:50px; border:none; margin:10px; font-weight:bold; cursor:pointer; }
+.share-btn { background:linear-gradient(135deg,#667eea,#5a67d8); }
 
-/* INFO KANAN */
-.content {
-  flex: 2;
-  min-width: 300px;
-  padding: 40px;
-}
+.blog-section { margin-top:50px; }
+.ad-banner { text-align:center; margin:40px 0; padding:20px; background:#f0f8ff; border-radius:15px; }
+.post-card { background:#f8f9fa; padding:25px; border-radius:20px; margin:20px 0; }
+.post-card h3 { color:#4a00e0; margin-bottom:8px; }
+.meta { color:#888; font-size:14px; }
+.donation { text-align:center; margin:50px 0; padding:30px; background:linear-gradient(135deg,#fef3c7,#fbbf24); border-radius:20px; color:#92400e; }
+.affiliate { color:#10b981; font-weight:bold; }
 
-h1 { color: #2c3e50; font-size: 28px; margin-bottom: 8px; }
-.tagline { color: #7f8c8d; font-style: italic; margin-bottom: 15px; }
+.nav-buttons { margin-top:50px; text-align:center; }
+.nav-buttons .btn { background:linear-gradient(135deg,#10b981,#059669); color:white; padding:14px 30px; border-radius:50px; text-decoration:none; margin:15px; display:inline-block; }
 
-h2 {
-  color: #4a00e0;
-  margin: 25px 0 15px;
-  font-size: 22px;
-  position: relative;
-}
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background: #4a00e0;
-}
+.loader { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.95); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999; }
+.spinner { width:60px; height:60px; border:6px solid #f3f3f3; border-top:6px solid #4a00e0; border-radius:50%; animation:spin 1s linear infinite; margin-bottom:20px; }
+@keyframes spin { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
 
-p { margin: 10px 0; color: #555; line-height: 1.6; }
-a { color: #4a00e0; text-decoration: none; font-weight: 600; }
-a:hover { text-decoration: underline; }
+.dark-toggle { position:fixed; top:20px; right:20px; background:#4a00e0; color:white; padding:12px 20px; border-radius:50px; border:none; font-weight:bold; cursor:pointer; z-index:1000; }
 
-ul { list-style: none; margin-top: 10px; }
-li {
-  background: linear-gradient(135deg, #8e2de2, #4a00e0);
-  color: white;
-  margin: 12px 0;
-  padding: 14px 18px;
-  border-radius: 50px;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(74,0,224,0.3);
-  transition: 0.3s;
-}
-li:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(74,0,224,0.4); }
-
-.btn {
-  display: inline-block;
-  background: linear-gradient(135deg, #8e2de2, #4a00e0);
-  color: white;
-  padding: 14px 30px;
-  border-radius: 50px;
-  margin-top: 25px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(74,0,224,0.4);
-  transition: 0.3s;
-}
-.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(74,0,224,0.5); }
-
-/* KONTAK FORM */
-.kontak {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 40px 20px;
-  background: #f8f9fa;
-  border-top: 1px solid #eee;
-}
-
-.kontak h2 { color: #4a00e0; margin-bottom: 10px; }
-.kontak p { color: #666; margin-bottom: 25px; font-style: italic; }
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 30px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(74,0,224,0.15);
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 16px;
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  font-size: 16px;
-  transition: 0.3s;
-  background: #f9f9ff;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #8e2de2;
-  box-shadow: 0 0 12px rgba(142,45,226,0.3);
-  background: white;
-}
-
-.contact-form textarea { min-height: 140px; resize: vertical; }
-
-.contact-form button {
-  padding: 16px;
-  background: linear-gradient(135deg, #8e2de2, #4a00e0);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 17px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 6px 20px rgba(74,0,224,0.4);
-}
-
-.contact-form button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(74,0,224,0.5);
-}
-
-.hire-btn {
-  display: inline-block;
-  padding: 16px 35px;
-  background: #4a00e0;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 17px;
-  transition: 0.3s;
-  box-shadow: 0 6px 20px rgba(74,0,224,0.4);
-  border: none;
-  cursor: pointer;
-}
-
-.hire-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(74,0,224,0.5);
-}
-
-/* DARK MODE */
-body.dark-mode {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  color: #eee;
-}
-
-body.dark-mode .container { background: #16213e; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
-body.dark-mode .content h1, body.dark-mode .content p, body.dark-mode h2::after { color: #eee; }
-body.dark-mode .kontak, body.dark-mode .contact-form { background: #1f1f3a; }
-body.dark-mode .contact-form input, body.dark-mode .contact-form textarea { background: #2a2a4a; border-color: #444; color: #eee; }
-
-.dark-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #4a00e0;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(74,0,224,0.4);
-  transition: 0.3s;
-}
-
-.dark-toggle:hover { transform: scale(1.1); }
-body.dark-mode .dark-toggle { background: #eee; color: #1a1a2e; }
-
-/* LOADING SCREEN */
-.loader {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 0.5s ease-out;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.spinner {
-  width: 60px; height: 60px;
-  border: 6px solid rgba(255,255,255,0.3);
-  border-top: 6px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-.loader.hidden { opacity: 0; pointer-events: none; }
-
-/* RESPONSIF HP */
-@media (max-width: 768px) {
-  .container { flex-direction: column; }
-  .sidebar, .content { text-align: center; padding: 25px; }
-  .foto { width: 90px; height: 90px; }
-  h1 { font-size: 24px; }
-  li { margin: 10px auto; max-width: 80%; }
-  .kontak { padding: 30px 15px; }
-  .contact-form { padding: 20px; }
-  /* TAMBAHAN BIAR CARD PROJECT LEBIH GLOW (OPTIONAL) */
-.project-card {
-  transition: 0.3s;
-}
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(74,0,224,0.25);
-}
-/* FIX RESPONSIVE HP — TAMBAHIN DI AKHIR style.css */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  .sidebar {
-    min-width: 100%;
-    padding: 30px 20px;
-    border-radius: 0;
-  }
-  .content {
-    min-width: 100%;
-    padding: 30px 20px;
-    text-align: center;
-  }
-  .foto {
-    width: 100px; height: 100px;
-  }
-  h1 { font-size: 24px; }
-  .kontak { padding: 20px; }
-  .contact-form { 
-    padding: 20px; 
-    max-width: 100%; 
-  }
-  .hire-btn, .btn {
-    display: block;
-    width: 90%;
-    margin: 15px auto;
-    text-align: center;
-  }
-  li { 
-    margin: 10px auto; 
-    max-width: 90%; 
-  }
-  /* ABOUT & PROJECTS FIX */
-  .about-container, .project-grid {
-    padding: 20px;
-  }
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-}
+@media (max-width:768px) {
+  .container { flex-direction:column; margin:20px; }
+  .sidebar, .content { padding:30px 20px; text-align:center; }
+  .foto { width:120px; height:120px; }
+  h1 { font-size:26px; }
+  .skill, .btn, .hire-btn, .share-btn { display:block; width:90%; margin:12px auto; }
+  .nav-buttons .btn { display:block; width:90%; margin:15px auto; }
+  .dark-toggle { top:15px; right:15px; padding:10px 15px; font-size:14px; }
 }

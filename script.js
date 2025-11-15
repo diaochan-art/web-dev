@@ -1,28 +1,30 @@
-// DARK MODE
-const toggle = document.getElementById('darkModeToggle');
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
-});
+// script.js - 7 Hari Ngoding Fakih
 
-// LOADING
+// LOADER
 window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
   setTimeout(() => {
-    loader.classList.add('hidden');
-    setTimeout(() => loader.remove(), 500);
+    const loader = document.getElementById('loader');
+    if (loader) loader.remove();
   }, 1500);
 });
 
-// SHARE
+// DARK MODE
+document.getElementById('darkModeToggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDark);
+});
+if (localStorage.getItem('darkMode') === 'true') {
+  document.body.classList.add('dark-mode');
+}
+
+// SHARE CV
 function shareCV() {
+  const url = location.href;
   if (navigator.share) {
-    navigator.share({
-      title: 'CV Fakih Abdul Aziz - Web Developer',
-      text: 'Cek CV interaktif saya! 🚀',
-      url: window.location.href
-    });
+    navigator.share({ title: 'CV Fakih', url });
   } else {
-    prompt('Salin link ini:', window.location.href);
+    navigator.clipboard.writeText(url);
+    alert('Link disalin: ' + url);
   }
 }
