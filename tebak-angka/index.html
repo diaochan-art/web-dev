@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tebak Angka - Fakih</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Tebak Angka 1-100</h1>
+    <p id="hint">Masukkan tebakanmu!</p>
+    <input type="number" id="guess" min="1" max="100" placeholder="Angka...">
+    <button onclick="tebak()">Tebak!</button>
+    <p id="result"></p>
+    <p>Skor: <span id="score">0</span> | Terbaik: <span id="best">0</span></p>
+    <button onclick="reset()" class="reset">🔄 Reset</button>
+    <a href="../projects.html" class="btn back">🔙 Kembali</a>
+  </div>
+
+  <script>
+    let angka = Math.floor(Math.random() * 100) + 1;
+    let skor = 0;
+    let terbaik = localStorage.getItem('bestTebak') || 0;
+    document.getElementById('best').textContent = terbaik;
+
+    function tebak() {
+      const tebakan = parseInt(document.getElementById('guess').value);
+      const result = document.getElementById('result');
+      if (!tebakan || tebakan < 1 || tebakan > 100) return result.textContent = '1-100 aja!';
+
+      skor++;
+      document.getElementById('score').textContent = skor;
+
+      if (tebakan === angka) {
+        result.innerHTML = `🎉 BENAR! <br>Angka: ${angka}`;
+        if (skor < terbaik || terbaik == 0) {
+          terbaik = skor;
+          localStorage.setItem('bestTebak', terbaik);
+          document.getElementById('best').textContent = terbaik;
+        }
+      } else if (tebakan < angka) result.textContent = '📈 Terlalu kecil!';
+      else result.textContent = '📉 Terlalu besar!';
+      document.getElementById('guess').value = '';
+    }
+
+    function reset() {
+      angka = Math.floor(Math.random() * 100) + 1;
+      skor = 0;
+      document.getElementById('score').textContent = skor;
+      document.getElementById('result').textContent = '';
+      document.getElementById('hint').textContent = 'Masukkan tebakanmu!';
+      document.getElementById('guess').value = '';
+    }
+  </script>
+</body>
+</html>

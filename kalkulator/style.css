@@ -1,0 +1,6 @@
+body { background: #764ba2; color: white; text-align: center; padding: 50px; font-family: Arial; }
+.container { max-width: 400px; margin: auto; background: rgba(0,0,0,0.2); padding: 40px; border-radius: 20px; }
+input { padding: 15px; width: 100%; margin: 10px 0; border-radius: 50px; border: none; text-align: center; font-size: 18px; }
+.ops button { background: #10b981; color: white; padding: 15px 20px; border: none; border-radius: 50px; margin: 5px; width: 60px; font-size: 20px; }
+#result { font-size: 24px; margin: 20px 0; font-weight: bold; }
+.back { background: #667eea; display: block; margin: 20px auto; width: 70%; text-decoration: none; padding: 15px; border-radius: 50px; }
