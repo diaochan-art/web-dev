@@ -1,6 +1,0 @@
-body { background: #667eea; color: white; text-align: center; padding: 50px; font-family: Arial; }
-.container { max-width: 400px; margin: auto; background: rgba(0,0,0,0.2); padding: 40px; border-radius: 20px; }
-input { padding: 15px; width: 70%; border-radius: 50px; border: none; text-align: center; font-size: 18px; }
-button { background: #10b981; color: white; padding: 15px 30px; border: none; border-radius: 50px; margin: 10px; }
-.reset { background: #ef4444; }
-.back { background: #667eea; display: block; margin: 20px auto; width: 70%; text-decoration: none; }

@@ -173,3 +173,42 @@ body { font-family: 'Poppins', sans-serif; margin: 0; background: #fffaf0; }
   .promo-img { width: 100%; height: 250px; }
   .resto-hero h1 { font-size: 36px; }
 }
+/* COUNTDOWN */
+.countdown { 
+  background: #ff3b30; color: white; padding: 8px 15px; border-radius: 50px; 
+  font-weight: bold; margin: 15px 0; display: inline-block; 
+}
+#timer { font-size: 16px; }
+
+/* KERANJANG */
+.keranjang-float { 
+  position: fixed; bottom: 20px; right: 20px; width: 320px; background: white; 
+  border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); z-index: 1000; 
+  display: none; overflow: hidden; 
+}
+.keranjang-header { 
+  background: linear-gradient(45deg, #ff3b30, #ff6b6b); color: white; 
+  padding: 15px; display: flex; justify-content: space-between; font-weight: bold; 
+}
+#keranjang-list { padding: 15px; max-height: 300px; overflow-y: auto; }
+.keranjang-item { 
+  display: flex; justify-content: space-between; align-items: center; 
+  padding: 10px 0; border-bottom: 1px solid #eee; 
+}
+.qty-control { display: flex; align-items: center; gap: 8px; }
+.qty-control button { width: 28px; height: 28px; border: none; background: #ddd; 
+  border-radius: 50%; font-weight: bold; cursor: pointer; }
+.qty-control button:hover { background: #ff3b30; color: white; }
+.hapus { color: #ff3b30; cursor: pointer; font-weight: bold; }
+.checkout-btn { 
+  width: 100%; background: #34c759; color: white; border: none; 
+  padding: 15px; font-weight: bold; font-size: 16px; 
+}
+/* STOCK BADGE */
+.stock-badge {
+  position: absolute; top: 10px; right: 10px; 
+  background: #34c759; color: white; padding: 4px 10px; 
+  border-radius: 50px; font-size: 12px; font-weight: bold; 
+  z-index: 10;
+}
+.card { position: relative; }

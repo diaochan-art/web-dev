@@ -83,3 +83,9 @@ body.dark-mode .resto-footer { background: #121212; color: #aaa; }
   .resto-hero h1 { font-size: 32px; }
   .dark-toggle { width: 40px; height: 40px; font-size: 16px; }
 }
+.btn-dash { display:block; background:linear-gradient(#FFD700, #FF4500); color:#000; text-align:center; padding:14px; margin:12px 0; border-radius:12px; font-weight:bold; text-decoration:none; box-shadow:0 0 12px #FFF; transition:0.4s; font-family:'Comic Sans MS', cursive; }
+.btn-dash:hover { transform:scale(1.08) translateY(-3px); background:linear-gradient(#FF4500, #FFD700); color:#FFF; box-shadow:0 0 20px #FF0; }
+.project-card { background:rgba(255,255,255,0.05); padding:22px; border-radius:18px; box-shadow:0 0 18px #FF4500; transition:0.3s; }
+.project-card:hover { box-shadow:0 0 30px #FFD700; }
+iframe { border:none !important; } /* Clean look */
+@media (max-width:600px) { iframe { height:200px; } .btn-dash { padding:12px; font-size:0.9em; } }

@@ -59,22 +59,40 @@
     </div>
   </section>
 
-  <!-- PROMO MIE SPECIAL - FOTO BESAR -->
-  <section id="promo" class="special-promo">
-    <h2 class="section-title">🔥 Promo Hari Ini!</h2>
-    <div class="promo-container">
-      <img src="assets/menu/mie-special.jpg" alt="Mie Special" class="promo-img">
-      <div class="promo-info">
-        <h3>Mie Spesial + Es Teh</h3>
-        <p class="old-price">Rp 25.000</p>
-        <p class="new-price animate-price">Rp 20.000</p>
-        <p class="desc">Mie Goreng + Telur + Bakso + Sambal Extra + Es Teh Dingin!</p>
-        <button class="pesan-btn pulse" data-item="Mie Spesial + Es Teh (Promo)" data-price="20000">
-          Pesan Sekarang
-        </button>
-      </div>
+  <!--PROMO-->
+ <section id="promo" class="special-promo">
+  <h2 class="section-title">🔥 Promo Hari Ini!</h2>
+  <div class="promo-container">
+    <img src="assets/menu/mie-special.jpg?v=1" alt="Mie Special" class="promo-img">
+    <div class="promo-info">
+      <h3>Mie Spesial + Es Teh</h3>
+      <p class="old-price">Rp 25.000</p>
+      <p class="new-price animate-price">Rp 20.000</p>
+      <p class="desc">Mie Goreng + Telur + Bakso + Sambal Extra + Es Teh Dingin!</p>
+      <div class="countdown">Berakhir dalam: <span id="timer">3 hari 12 jam</span></div>
+      <button class="pesan-btn pulse" onclick="addToCart('Mie Spesial + Es Teh (Promo)', 20000)">
+        Pesan Sekarang
+     </button>
     </div>
-  </section>
+   </div>
+ </section>
+
+ <!-- KERANJANG FLOAT -->
+<div class="keranjang-float" id="keranjang">
+  <div class="keranjang-header">
+    <span>Keranjang (<span id="item-count">0</span>)</span>
+    <span id="total-harga">Rp 0</span>
+  </div>
+  <div id="keranjang-list"></div>
+  <button id="checkout-wa" class="checkout-btn">Checkout via WA</button>
+</div>
+<!-- TAMBAH DI index.html (di bawah keranjang) -->
+<div class="qris-popup" id="qris-popup" style="display:none;">
+  <h3>💳 Bayar via QRIS</h3>
+  <img src="assets/qris.jpg" alt="QRIS" class="qris-img">
+  <p>Total: <strong id="qris-total">Rp 0</strong></p>
+  <button onclick="closeQRIS()">Tutup</button>
+</div>
 
   <script src="script.js"></script>
 </body>
