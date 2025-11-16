@@ -3,49 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resto Mie Fakih</title>
+  <title>Mie Fakih - Pedas Level Dewa!</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header class="header">
+
+  <!-- HEADER STICKY -->
+  <header class="resto-header">
     <div class="logo">🍜 Mie Fakih</div>
-    <nav class="nav">
+    <nav class="resto-nav">
       <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Kontak</a>
+      <a href="#promo">Promo</a>
+      <a href="#kontak">Kontak</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Mie Pedas Level Dewa!</h1>
+  <!-- HERO + LEVEL PEDAS -->
+  <section class="resto-hero">
+    <h1>Mie Pedas Level Dewa! 🔥</h1>
     <p>Rasa otentik, harga mahasiswa</p>
-    <button class="cta">Pesan Sekarang</button>
+    
+    <div class="level-pedas">
+      <label>Pilih Level Pedas:</label>
+      <input type="range" id="pedas" min="0" max="5" value="3">
+      <span id="level-text">Level 3 - Gila!</span>
+    </div>
+
+    <button class="resto-cta">Pesan Sekarang via WA</button>
   </section>
 
-  <section id="menu" class="menu-grid">
-    <h2>Menu Andalan</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Mie Goreng">
-        <h3>Mie Goreng</h3>
-        <p>Rp 15.000</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Mie Kuah">
-        <h3>Mie Kuah</h3>
-        <p>Rp 12.000</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Es Teh">
-        <h3>Es Teh</h3>
-        <p>Rp 5.000</p>
+  <!-- PROMO SPESIAL -->
+  <section id="promo" class="special-menu">
+    <h2>🔥 Promo Hari Ini!</h2>
+    <div class="special-card">
+      <img src="assets/menu/mie-spesial.jpg" alt="Mie Spesial">
+      <div class="info">
+        <h3>Mie Spesial + Es Teh</h3>
+        <p class="old-price">Rp 25.000</p>
+        <p class="new-price">Rp 20.000</p>
+        <button class="pesan-btn" data-item="Mie Spesial + Es Teh" data-price="20000">Pesan Sekarang</button>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Mie Fakih. All rights reserved.</p>
-    <a href="../projects.html" class="btn back">🔙 Kembali ke Projects</a>
+  <!-- MENU GRID + PESAN -->
+  <section id="menu" class="menu-grid">
+    <h2>Menu Andalan</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="assets/menu/mie-goreng.jpg" alt="Mie Goreng" class="menu-img">
+        <h3>Mie Goreng</h3>
+        <p class="price">Rp 15.000</p>
+        <button class="pesan-btn" data-item="Mie Goreng" data-price="15000">Pesan Ini</button>
+      </div>
+      <div class="card">
+        <img src="assets/menu/mie-kuah.jpg" alt="Mie Kuah" class="menu-img">
+        <h3>Mie Kuah</h3>
+        <p class="price">Rp 12.000</p>
+        <button class="pesan-btn" data-item="Mie Kuah" data-price="12000">Pesan Ini</button>
+      </div>
+      <div class="card">
+        <img src="assets/menu/es-teh.jpg" alt="Es Teh" class="menu-img">
+        <h3>Es Teh</h3>
+        <p class="price">Rp 5.000</p>
+        <button class="pesan-btn" data-item="Es Teh" data-price="5000">Pesan Ini</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- KERANJANG -->
+  <div class="keranjang-float">
+    <div class="keranjang-header">
+      <span>Keranjang (<span id="item-count">0</span>)</span>
+      <span id="total-harga">Rp 0</span>
+    </div>
+    <div id="keranjang-list"></div>
+    <button id="checkout-wa">Checkout via WA</button>
+  </div>
+
+  <!-- FOOTER + MAPS -->
+  <footer class="resto-footer">
+    <p>🕒 Buka: 10:00 - 22:00 WIB</p>
+    <p>📍 Jl. Contoh No.123, Jakarta</p>
+    <div class="maps">
+      <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+    </div>
+    <p>© 2025 Mie Fakih. CV by Fakih Abdul Aziz</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
