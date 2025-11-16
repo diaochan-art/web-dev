@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% if title %}{{ title }} — {% endif %}Blog Fakih</title>
+  <link rel="stylesheet" href="/styles.css">
+  <meta name="description" content="Blog Fakih — catatan ngoding dan resep mie">
+</head>
+<body>
+  <header style="background:#ff4500;color:#fff;padding:20px;text-align:center">
+    <h1><a href="/" style="color:#fff;text-decoration:none">Blog Fakih</a></h1>
+  </header>
+
+  <main style="max-width:900px;margin:28px auto;padding:0 16px">
+    {{ content | safe }}
+  </main>
+
+  <footer style="text-align:center;padding:24px;color:#666">
+    © {{ now | date('yyyy') }} Fakih Abdul Aziz
+  </footer>
+</body>
+</html>

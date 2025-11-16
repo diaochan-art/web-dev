@@ -1,6 +1,7 @@
 // script.js – Meme Dash Tycoon Edition (No Error, God Mode Activate!)
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const errOverlay = document.getElementById && document.getElementById('errOverlay');
 const scoreEl = document.getElementById('score');
 const highscoreEl = document.getElementById('highscore');
 const gameoverEl = document.getElementById('gameover');
@@ -14,8 +15,6 @@ function resize() {
   canvas.height = innerHeight;
   initLanes();
 }
-resize();
-addEventListener('resize', resize);
 
 let player = { x: 100, y: 0, width: 60, height: 60, velY: 0, lane: 1, jumping: false, frame: 0 };
 let obstacles = [], coins = [], particles = [], speed = 5, score = 0, gameRunning = false, gravity = 1.2, jumpPower = -22;
@@ -24,15 +23,33 @@ highscoreEl.textContent = `Best: ${highscore}`;
 let lanes = [], wowFlash = 0;
 
 function initLanes() {
-  lanes = [canvas.width * 0.3, canvas.width * 0.5, canvas.width * 0.7];
-  player.x = lanes[player.lane]; // Adjust player pas resize
+  // Use left-coordinates for lanes (center the player on lane)
+  lanes = [canvas.width * 0.3 - player.width / 2, canvas.width * 0.5 - player.width / 2, canvas.width * 0.7 - player.width / 2];
+  player.x = lanes[player.lane]; // Adjust player saat resize
 }
-initLanes();
-player.y = canvas.height - 150;
+
+// Safe initialization: defer until after all variable declarations
+function initGame() {
+  resize();
+  player.y = canvas.height - 150;
+  addEventListener('resize', resize);
+}
+
+// Try to init on load, or fallback to DOMContentLoaded
+if (document.readyState === 'complete') {
+  initGame();
+} else {
+  window.addEventListener('load', initGame);
+  document.addEventListener('DOMContentLoaded', initGame);
+}
 
 // Doge img (lo punya base64, duplicate buat animate hack: scale x flip)
 const dogeImg = new Image();
-dogeImg.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHe...'; // Lo punya full
+// Prefer a local SVG for lighter bundle; fallback uses drawing if load fails
+dogeImg.src = './doge.svg';
+dogeImg.onerror = () => {
+  // keep silent — script has a canvas fallback drawing when image not available
+};
 
 // Draw Hater fix balance
 function drawHater(x, y) {
@@ -71,7 +88,17 @@ function createParticles(x, y) {
 // Sound beep safe (try-catch kalo base64 rusak)
 let beep;
 try {
-  beep = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=');
+  const audio = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=');
+  beep = {
+    play: () => {
+      try {
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {}); // Suppress AbortError
+        }
+      } catch (e) {}
+    }
+  };
 } catch (e) {
   beep = { play: () => {} }; // No crash kalo invalid
 }
@@ -101,7 +128,7 @@ addEventListener('keydown', e => {
   if (!gameRunning) return;
   if (e.key === 'ArrowLeft') changeLane(-1);
   if (e.key === 'ArrowRight') changeLane(1);
-  if (e.key === ' ') jump();
+  if (e.key === ' ' || e.code === 'Space') jump();
 });
 let touchStartX = 0, touchStartY = 0;
 canvas.addEventListener('touchstart', e => {
@@ -168,7 +195,18 @@ function loop() {
   ctx.save();
   ctx.translate(player.x + player.width / 2, player.y + player.height / 2);
   ctx.scale((animFrame % 20 < 10 ? 1 : -1), 1); // Flip horizontal simulate run
-  ctx.drawImage(dogeImg, -player.width / 2, -player.height / 2, player.width, player.height);
+  // Draw doge image if loaded, otherwise draw a simple fallback circle
+  if (dogeImg && dogeImg.complete && dogeImg.naturalWidth) {
+    ctx.drawImage(dogeImg, -player.width / 2, -player.height / 2, player.width, player.height);
+  } else {
+    ctx.fillStyle = '#F4A460';
+    ctx.beginPath();
+    ctx.arc(0, 0, player.width / 2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#000';
+    ctx.font = '14px Arial';
+    ctx.fillText('Doge', -18, 6);
+  }
   ctx.restore();
 
   spawnStuff();
@@ -221,12 +259,16 @@ startBtn.onclick = () => {
   coins = [];
   particles = [];
   scoreEl.textContent = 'Score: 0';
+  // Reset player position
+  player.velY = 0;
+  player.jumping = false;
+  player.y = canvas.height - 150;
   loop();
 };
 function endGame() {
   gameRunning = false;
   gameoverEl.style.display = 'block';
-  finalScoreEl.textContent = score;
+  finalScoreEl.textContent = `Score: ${score}`;
   if (score > highscore) {
     highscore = score;
     localStorage.setItem('memeHigh', highscore);
@@ -244,3 +286,26 @@ shareBtn.onclick = () => {
 // Init
 startMenu.style.display = 'block';
 gameoverEl.style.display = 'none';
+
+// Error reporting helpers: show errors on-page so user can copy them easily
+function showError(msg) {
+  try {
+    if (!errOverlay) return;
+    errOverlay.style.display = 'block';
+    const el = document.createElement('div');
+    el.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+    errOverlay.appendChild(el);
+  } catch (e) { /* ignore */ }
+}
+
+window.addEventListener('error', (ev) => {
+  showError((ev && ev.message) ? ev.message + ' @ ' + (ev.filename || '') + ':' + (ev.lineno || '') : String(ev));
+});
+window.addEventListener('unhandledrejection', (ev) => {
+  showError('UnhandledRejection: ' + (ev.reason && ev.reason.stack ? ev.reason.stack : String(ev.reason)));
+});
+const _consoleError = console.error.bind(console);
+console.error = function (...args) {
+  _consoleError(...args);
+  try { showError(args.map(a => (typeof a === 'string' ? a : JSON.stringify(a))).join(' ')); } catch (e) {}
+};

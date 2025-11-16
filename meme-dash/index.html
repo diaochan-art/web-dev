@@ -11,6 +11,9 @@
 <body>
   <canvas id="canvas"></canvas>
 
+  <!-- Error overlay: tampilkan pesan runtime jika ada error -->
+  <div id="errOverlay" style="position:fixed;left:0;right:0;bottom:0;max-height:40%;overflow:auto;background:rgba(0,0,0,0.85);color:#fff;padding:10px;font-family:monospace;display:none;z-index:9999;"></div>
+
   <div id="startMenu" class="menu">
     <h1>Meme Dash 🐶</h1>
     <p>Collect ❤️ Hindar Haters! Such Wow!</p>
@@ -29,10 +32,15 @@
     <button onclick="location.reload()">Dash Again</button>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
+      // Unregister old service workers first
+      navigator.serviceWorker.getRegistrations().then((regs) => {
+        regs.forEach((reg) => reg.unregister());
+      });
+      // Register new version
+      navigator.serviceWorker.register('sw.js?v=2');
     }
   </script>
 </body>
