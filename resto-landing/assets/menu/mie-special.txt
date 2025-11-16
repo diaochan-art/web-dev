@@ -1,0 +1,4 @@
+[PLACEHOLDER IMAGE FILE]
+This is a placeholder for the mie-special.jpg image.
+Replace this file with an actual JPG image file.
+Location: resto-landing/assets/menu/mie-special.jpg

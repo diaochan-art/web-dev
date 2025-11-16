@@ -1,0 +1,4 @@
+[PLACEHOLDER IMAGE FILE]
+This is a placeholder for the qris.jpg image.
+Replace this file with an actual JPG image file containing a QR code for payment.
+Location: resto-landing/assets/qris.jpg

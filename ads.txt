@@ -1,2 +1,3 @@
-google.com, pub-XXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-google.com, pub-XXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Google AdSense verification file - Placeholder
+# Replace pub-XXXXXXXXXXXXXX with actual Google Publisher ID when ready
+# google.com, pub-XXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

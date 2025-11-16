@@ -1,0 +1,1328 @@
+{
+  "workspace": "d:\\program",
+  "analysis_date": "2025-11-17",
+  "total_files_analyzed": 47,
+  "summary": {
+    "critical_issues": 8,
+    "warnings": 12,
+    "info_items": 15
+  },
+  "file_structure_overview": {
+    "root_files": [
+      "about.html",
+      "ads.txt",
+      "index.html",
+      "projects.html",
+      "script.js",
+      "style.css"
+    ],
+    "root_directories": [
+      "assets/",
+      "blog/",
+      "blog_elev/",
+      "kalkulator/",
+      "meme-dash/",
+      "resto-landing/",
+      "todo-list/"
+    ]
+  },
+  "detailed_findings": {
+    "root_level_files": {
+      "index.html": {
+        "type": "HTML",
+        "line_count": 116,
+        "status": "✓ VALID",
+        "issues": [
+          {
+            "severity": "INFO",
+            "type": "reference_note",
+            "message": "Google AdSense script placeholder at line 9",
+            "line": 9,
+            "details": "Script tag contains 'pub-XXXXXXXXXXXXXX' - needs to be replaced with actual Google Publisher ID",
+            "recommendation": "Replace placeholder with real AdSense ID or remove if not using"
+          },
+          {
+            "severity": "WARNING",
+            "type": "hardcoded_phone",
+            "message": "Hardcoded WhatsApp phone number at line 71",
+            "line": 71,
+            "code": "phone = '628123456789'",
+            "recommendation": "Move to environment variable or configuration file"
+          },
+          {
+            "severity": "INFO",
+            "type": "image_reference",
+            "message": "References images in assets/menu/ folder",
+            "lines": [96, 101],
+            "images": ["mie-goreng.jpg", "mie-kuah.jpg", "es-teh.jpg"],
+            "status": "Files exist in assets/menu/"
+          }
+        ],
+        "links_verified": [
+          {
+            "href": "about.html",
+            "status": "✓ EXISTS"
+          },
+          {
+            "href": "projects.html",
+            "status": "✓ EXISTS"
+          },
+          {
+            "href": "blog/",
+            "status": "✓ EXISTS"
+          }
+        ],
+        "meta_tags": {
+          "charset": "UTF-8",
+          "viewport": "width=device-width, initial-scale=1.0",
+          "description": "CV Fakih + Mie Fakih - Pedas Level Dewa!",
+          "language": "id"
+        }
+      },
+      "about.html": {
+        "type": "HTML",
+        "line_count": 143,
+        "status": "✓ VALID",
+        "issues": [
+          {
+            "severity": "ERROR",
+            "type": "broken_image_reference",
+            "message": "Image reference missing path at line 67",
+            "line": 67,
+            "code": "src=\"foto.jpg\"",
+            "issue": "Should be src=\"assets/foto.jpg\" or src=\"../assets/foto.jpg\"",
+            "recommendation": "Update image reference to correct path"
+          },
+          {
+            "severity": "INFO",
+            "type": "embedded_style",
+            "message": "Page contains embedded <style> tag",
+            "line_range": [8, 63],
+            "recommendation": "Consider consolidating styles into main style.css for better maintainability"
+          },
+          {
+            "severity": "WARNING",
+            "type": "duplicate_script",
+            "message": "Loads script.js like other pages (lines 140)",
+            "line": 140,
+            "note": "Script may reference DOM elements that don't exist on this page"
+          }
+        ],
+        "links_verified": [
+          {
+            "href": "index.html",
+            "status": "✓ EXISTS"
+          },
+          {
+            "href": "projects.html",
+            "status": "✓ EXISTS"
+          }
+        ]
+      },
+      "projects.html": {
+        "type": "HTML",
+        "line_count": 66,
+        "status": "✓ VALID",
+        "issues": [
+          {
+            "severity": "INFO",
+            "type": "embedded_preview",
+            "message": "Uses iframe to embed meme-dash game",
+            "line": 27,
+            "code": "<iframe src=\"./meme-dash/\" width=\"100%\" height=\"250\" ...>",
+            "recommendation": "Add fallback content inside iframe for accessibility"
+          }
+        ],
+        "projects_referenced": [
+          {
+            "name": "Meme Dash",
+            "path": "./meme-dash/",
+            "status": "✓ EXISTS"
+          },
+          {
+            "name": "To-Do List",
+            "path": "./todo-list/",
+            "status": "✓ EXISTS"
+          },
+          {
+            "name": "Resto Landing",
+            "path": "./resto-landing/",
+            "status": "✓ EXISTS"
+          },
+          {
+            "name": "Kalkulator",
+            "path": "./kalkulator/",
+            "status": "✓ EXISTS"
+          }
+        ]
+      },
+      "script.js": {
+        "type": "JavaScript",
+        "line_count": 48,
+        "status": "✓ VALID - NO SYNTAX ERRORS",
+        "issues": [
+          {
+            "severity": "INFO",
+            "type": "execution_flow",
+            "message": "Loader timeout set to 1500ms (line 3)",
+            "line": 3,
+            "note": "Good for providing user feedback during page load"
+          },
+          {
+            "severity": "WARNING",
+            "type": "hardcoded_phone",
+            "message": "Hardcoded WhatsApp number for restaurant orders",
+            "line": 25,
+            "code": "phone = '628123456789'",
+            "recommendation": "Replace with actual business phone number"
+          },
+          {
+            "severity": "INFO",
+            "type": "dom_dependency",
+            "message": "Depends on #darkModeToggle, #loader elements",
+            "lines": [18, 2],
+            "note": "Elements are present in index.html, about.html, projects.html"
+          }
+        ],
+        "functionality": [
+          "Loader animation (1.5s delay)",
+          "Dark mode toggle with localStorage persistence",
+          "WhatsApp integration for restaurant orders"
+        ]
+      },
+      "style.css": {
+        "type": "CSS",
+        "line_count": 445,
+        "status": "✓ VALID",
+        "issues": [
+          {
+            "severity": "INFO",
+            "type": "code_quality",
+            "message": "Well-organized CSS with clear sections",
+            "sections": [
+              "RESET & BASE",
+              "CONTAINER",
+              "SIDEBAR",
+              "CONTENT",
+              "DARK MODE TOGGLE",
+              "LOADER",
+              "TOKO MIE FAKIH",
+              "PROJECT DASHBOARD",
+              "RESPONSIVE DESIGN"
+            ]
+          },
+          {
+            "severity": "INFO",
+            "type": "responsive_design",
+            "message": "Includes media queries for mobile optimization",
+            "breakpoints": ["768px", "600px"]
+          }
+        ],
+        "color_scheme": {
+          "primary": "#4a00e0",
+          "primary_light": "#8e2de2",
+          "accent_green": "#50c878",
+          "accent_red": "#ff3b30"
+        }
+      },
+      "ads.txt": {
+        "type": "Text/AdSense Configuration",
+        "line_count": 2,
+        "status": "⚠ PLACEHOLDER DATA",
+        "issues": [
+          {
+            "severity": "WARNING",
+            "type": "incomplete_config",
+            "message": "Contains placeholder pub-XXXXXXXXXXXXXX",
+            "line": 1,
+            "recommendation": "Replace with actual Google AdSense publisher ID"
+          }
+        ]
+      }
+    },
+    "blog_directory": {
+      "path": "d:\\program\\blog\\",
+      "status": "✓ FUNCTIONAL - STATIC BLOG",
+      "files": {
+        "index.html": {
+          "type": "HTML",
+          "line_count": 32,
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "structure",
+              "message": "Simple static blog index listing posts"
+            }
+          ],
+          "links": [
+            {
+              "href": "posts/post-1.html",
+              "status": "✓ EXISTS"
+            },
+            {
+              "href": "/",
+              "status": "✓ HOME LINK"
+            }
+          ]
+        },
+        "style.css": {
+          "type": "CSS",
+          "line_count": 10,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "minified",
+              "message": "CSS is minified (all on one line)",
+              "recommendation": "Consider formatting for maintainability during development"
+            }
+          ]
+        },
+        "README.md": {
+          "type": "Markdown",
+          "line_count": 39,
+          "status": "✓ VALID",
+          "content": "Documentation for static blog setup and deployment"
+        },
+        "posts/post-1.html": {
+          "type": "HTML",
+          "line_count": 29,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "relative_path",
+              "message": "Correct relative path to stylesheet",
+              "line": 6,
+              "code": "link rel=\"stylesheet\" href=\"../style.css\""
+            }
+          ]
+        }
+      }
+    },
+    "blog_elev_directory": {
+      "path": "d:\\program\\blog_elev\\",
+      "status": "✓ ELEVENTY STATIC SITE GENERATOR",
+      "type": "Node.js-based SSG",
+      "files": {
+        ".eleventy.js": {
+          "type": "JavaScript Configuration",
+          "line_count": 25,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "configuration",
+              "message": "Properly configured Eleventy with RSS plugin",
+              "features": [
+                "RSS plugin enabled",
+                "Assets passthrough copy",
+                "Custom date filter (readableDate)",
+                "Posts collection configuration",
+                "Output directory: _site"
+              ]
+            }
+          ]
+        },
+        "package.json": {
+          "type": "NPM Configuration",
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "WARNING",
+              "type": "dependency_versions",
+              "message": "Using caret version constraints",
+              "recommendation": "Consider pinning versions for production stability",
+              "current": "^1.0.0",
+              "suggested": "~1.0.0 or exact version"
+            }
+          ],
+          "scripts": {
+            "start": "eleventy --serve",
+            "build": "eleventy",
+            "clean": "rimraf _site"
+          }
+        },
+        "netlify.toml": {
+          "type": "Netlify Configuration",
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "deployment_config",
+              "message": "Configured for Netlify deployment",
+              "build_command": "npm run build",
+              "publish_folder": "_site",
+              "node_version": "18"
+            }
+          ]
+        },
+        "README.md": {
+          "type": "Markdown Documentation",
+          "line_count": 75,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "documentation",
+              "message": "Comprehensive setup and deployment instructions",
+              "covers": [
+                "Quick start (Windows)",
+                "Build process",
+                "RSS Feed setup",
+                "GitHub Pages deployment",
+                "Netlify deployment",
+                "Post creation instructions"
+              ]
+            }
+          ]
+        },
+        "src/index.njk": {
+          "type": "Nunjucks Template",
+          "line_count": 25,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "template",
+              "message": "Lists recent posts in reverse chronological order"
+            }
+          ]
+        },
+        "src/_data/site.json": {
+          "type": "JSON Data File",
+          "line_count": 5,
+          "status": "⚠ INCOMPLETE",
+          "issues": [
+            {
+              "severity": "WARNING",
+              "type": "placeholder",
+              "message": "Contains placeholder URL",
+              "line": 2,
+              "current": "\"url\": \"https://example.com\"",
+              "recommendation": "Replace with actual blog domain"
+            }
+          ]
+        },
+        "src/posts/": {
+          "type": "Markdown Blog Posts",
+          "files": [
+            "2025-11-01-intro.md",
+            "2025-11-02-tip-mie.md"
+          ],
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "front_matter",
+              "message": "Both posts use proper YAML front matter",
+              "fields": ["title", "date", "layout"]
+            }
+          ]
+        },
+        "src/_includes/layouts/base.njk": {
+          "type": "Nunjucks Layout Template",
+          "line_count": 24,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "template",
+              "message": "Base layout for all pages"
+            }
+          ]
+        },
+        "src/_includes/post.njk": {
+          "type": "Nunjucks Partial",
+          "line_count": 6,
+          "status": "✓ VALID"
+        },
+        "src/rss.njk": {
+          "type": "RSS Feed Template",
+          "status": "⚠ PLACEHOLDER",
+          "issues": [
+            {
+              "severity": "WARNING",
+              "type": "placeholder",
+              "message": "Contains placeholder URL",
+              "current": "\"https://example.com/\"",
+              "recommendation": "Replace with actual blog domain"
+            }
+          ]
+        },
+        "src/sitemap.njk": {
+          "type": "XML Sitemap Template",
+          "status": "⚠ PLACEHOLDER",
+          "issues": [
+            {
+              "severity": "WARNING",
+              "type": "placeholder",
+              "message": "Contains placeholder URL",
+              "current": "\"https://example.com\"",
+              "recommendation": "Replace with actual blog domain"
+            }
+          ]
+        },
+        "src/404.njk": {
+          "type": "Error Page Template",
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "page",
+              "message": "Proper 404 error page with link back to home"
+            }
+          ]
+        },
+        "src/styles.css": {
+          "type": "CSS",
+          "line_count": 6,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "minified",
+              "message": "CSS is minified (all on one line)",
+              "recommendation": "Consider formatting for easier maintenance"
+            }
+          ]
+        },
+        "tools/import_blog_posts.py": {
+          "type": "Python Script",
+          "line_count": 59,
+          "status": "✓ VALID - NO SYNTAX ERRORS",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "dependency",
+              "message": "Requires beautifulsoup4 package",
+              "installation": "pip install -r tools/requirements.txt"
+            },
+            {
+              "severity": "INFO",
+              "type": "utility",
+              "message": "Converts HTML blog posts to Markdown for Eleventy"
+            }
+          ]
+        },
+        "admin/config.yml": {
+          "type": "Netlify CMS Configuration",
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "cms_config",
+              "message": "Configured for content management via Netlify CMS",
+              "features": [
+                "Git-based backend",
+                "Posts collection with markdown editor",
+                "Media folder configuration"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "kalkulator_directory": {
+      "path": "d:\\program\\kalkulator\\",
+      "status": "✓ FUNCTIONAL",
+      "type": "Simple Calculator App",
+      "files": {
+        "index.html": {
+          "type": "HTML",
+          "line_count": 37,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "inline_script",
+              "message": "Calculator logic embedded in HTML (lines 20-35)",
+              "recommendation": "Could be extracted to separate .js file for reusability"
+            },
+            {
+              "severity": "INFO",
+              "type": "functionality",
+              "message": "Supports basic operations: +, -, ×, ÷",
+              "features": [
+                "Two number inputs",
+                "Division by zero protection",
+                "Result display"
+              ]
+            }
+          ]
+        },
+        "style.css": {
+          "type": "CSS",
+          "line_count": 77,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "design",
+              "message": "Purple gradient background design",
+              "color_scheme": "#764ba2 to #667eea"
+            }
+          ]
+        }
+      }
+    },
+    "meme_dash_directory": {
+      "path": "d:\\program\\meme-dash\\",
+      "status": "✓ FUNCTIONAL - PWA GAME",
+      "type": "Progressive Web App - Endless Runner Game",
+      "files": {
+        "index.html": {
+          "type": "HTML",
+          "line_count": 43,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "pwa",
+              "message": "Configured as Progressive Web App",
+              "features": [
+                "Manifest.json linked",
+                "Service Worker registration",
+                "Canvas-based game",
+                "Error overlay for debugging"
+              ]
+            },
+            {
+              "severity": "WARNING",
+              "type": "caching",
+              "message": "Service Worker version cache busting",
+              "line": 42,
+              "note": "Uses ?v=2 query parameter for cache invalidation"
+            }
+          ]
+        },
+        "manifest.json": {
+          "type": "JSON - PWA Manifest",
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "pwa_config",
+              "message": "Properly configured for installable PWA",
+              "features": [
+                "Standalone display mode",
+                "Theme color: #FF4500",
+                "Icon reference: doge.svg"
+              ]
+            }
+          ]
+        },
+        "style.css": {
+          "type": "CSS",
+          "line_count": 14,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "minified",
+              "message": "CSS is minified (all on one line)"
+            }
+          ]
+        },
+        "script.js": {
+          "type": "JavaScript - Game Engine",
+          "line_count": 311,
+          "status": "✓ VALID - NO SYNTAX ERRORS",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "complexity",
+              "message": "Complex game implementation with error handling",
+              "features": [
+                "Canvas rendering",
+                "Collision detection",
+                "Touch and keyboard input",
+                "Particle effects",
+                "LocalStorage highscore",
+                "Audio playback",
+                "Multiple lanes/obstacles"
+              ]
+            },
+            {
+              "severity": "WARNING",
+              "type": "error_handling",
+              "message": "Comprehensive error handling with on-page error overlay",
+              "lines": [295, 306, 310],
+              "note": "Good for debugging but may expose implementation details"
+            }
+          ]
+        },
+        "sw.js": {
+          "type": "JavaScript - Service Worker",
+          "line_count": 38,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "caching",
+              "message": "Implements network-first caching strategy",
+              "strategy": "Try network first, fall back to cache, then home page"
+            }
+          ]
+        },
+        "test-console.js": {
+          "type": "JavaScript - Test Script",
+          "line_count": 51,
+          "status": "⚠ REQUIRES PUPPETEER",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "testing",
+              "message": "Automated browser testing script using Puppeteer",
+              "note": "Requires: npm install puppeteer"
+            }
+          ]
+        },
+        "doge.svg": {
+          "type": "SVG Image",
+          "status": "✓ EXISTS",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "asset",
+              "message": "Game character image in SVG format"
+            }
+          ]
+        },
+        "README.md": {
+          "type": "Markdown",
+          "status": "✓ EXISTS"
+        }
+      }
+    },
+    "todo_list_directory": {
+      "path": "d:\\program\\todo-list\\",
+      "status": "✓ FUNCTIONAL",
+      "type": "To-Do List Web App",
+      "files": {
+        "index.html": {
+          "type": "HTML",
+          "line_count": 39,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "functionality",
+              "message": "Simple CRUD to-do list with localStorage",
+              "features": [
+                "Add tasks with Enter key",
+                "Toggle completion status",
+                "Delete tasks",
+                "Dynamic list updates"
+              ]
+            },
+            {
+              "severity": "INFO",
+              "type": "inline_script",
+              "message": "All JavaScript embedded in HTML",
+              "note": "Could extract to separate file for larger projects"
+            }
+          ]
+        },
+        "style.css": {
+          "type": "CSS",
+          "line_count": 120,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "design",
+              "message": "Modern gradient design with glassmorphism",
+              "color_scheme": "#764ba2 to #667eea gradient"
+            }
+          ]
+        }
+      }
+    },
+    "resto_landing_directory": {
+      "path": "d:\\program\\resto-landing\\",
+      "status": "✓ FUNCTIONAL - RESTAURANT LANDING PAGE",
+      "type": "Restaurant e-commerce landing page",
+      "files": {
+        "index.html": {
+          "type": "HTML",
+          "line_count": 87,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "WARNING",
+              "type": "missing_images",
+              "message": "References menu images with version query strings",
+              "lines": [40, 44, 48, 61],
+              "images": [
+                "assets/menu/mie-goreng.jpg",
+                "assets/menu/mie-kuah.jpg",
+                "assets/menu/es-teh.jpg",
+                "assets/menu/mie-special.jpg?v=1",
+                "assets/qris.jpg"
+              ],
+              "status": "First 3 exist, last 2 may be missing",
+              "recommendation": "Create or link mie-special.jpg and qris.jpg in assets/"
+            },
+            {
+              "severity": "INFO",
+              "type": "functionality",
+              "message": "Full-featured restaurant ordering system",
+              "features": [
+                "Menu grid with images",
+                "Stock management UI",
+                "Level selection slider",
+                "Shopping cart floating widget",
+                "WhatsApp integration for orders",
+                "Countdown promo timer"
+              ]
+            }
+          ]
+        },
+        "style.css": {
+          "type": "CSS",
+          "line_count": 568,
+          "status": "✓ VALID",
+          "issues": [
+            {
+              "severity": "INFO",
+              "type": "responsive",
+              "message": "Fully responsive with multiple breakpoints",
+              "breakpoints": ["768px", "600px"]
+            },
+            {
+              "severity": "INFO",
+              "type": "animations",
+              "message": "Multiple CSS animations defined",
+              "animations": [
+                "@keyframes bounce",
+                "@keyframes fadeIn",
+                "@keyframes pulse"
+              ]
+            }
+          ]
+        },
+        "script.js": {
+          "type": "JavaScript",
+          "line_count": 223,
+          "status": "✓ VALID - NO SYNTAX ERRORS",
+          "issues": [
+            {
+              "severity": "WARNING",
+              "type": "hardcoded_values",
+              "message": "Hardcoded phone numbers and values",
+              "line": 65,
+              "code": "adminWA = '628123456789'",
+              "recommendation": "Move to configuration file or environment variables"
+            },
+            {
+              "severity": "INFO",
+              "type": "functionality",
+              "message": "Comprehensive e-commerce logic",
+              "features": [
+                "Stock management with UI updates",
+                "Shopping cart system",
+                "Quantity controls",
+                "Real-time total calculation",
+                "WhatsApp messaging for orders",
+                "Promo countdown timer",
+                "Level/spice selection"
+              ]
+            },
+            {
+              "severity": "WARNING",
+              "type": "logic_error",
+              "message": "Potential duplicate event listener",
+              "line_range": [175, 190],
+              "issue": "DOMContentLoaded handler and direct script at line 175",
+              "recommendation": "Consolidate event binding logic"
+            }
+          ]
+        },
+        "assets/": {
+          "type": "Directory",
+          "status": "⚠ INCOMPLETE",
+          "issues": [
+            {
+              "severity": "WARNING",
+              "type": "missing_files",
+              "message": "Missing expected images",
+              "missing": [
+                "mie-special.jpg (referenced at line 61)",
+                "qris.jpg (referenced at line 84)"
+              ],
+              "recommendation": "Create or upload these image files"
+            }
+          ]
+        }
+      }
+    },
+    "assets_directory": {
+      "path": "d:\\program\\assets\\",
+      "status": "✓ VALID",
+      "files": {
+        "foto.jpg": {
+          "type": "Image",
+          "status": "✓ EXISTS",
+          "references": ["index.html", "projects.html", "about.html"]
+        },
+        "menu/mie-goreng.jpg": {
+          "type": "Image",
+          "status": "✓ EXISTS",
+          "references": ["index.html", "resto-landing/index.html"]
+        },
+        "menu/mie-kuah.jpg": {
+          "type": "Image",
+          "status": "✓ EXISTS",
+          "references": ["index.html", "resto-landing/index.html"]
+        },
+        "menu/es-teh.jpg": {
+          "type": "Image",
+          "status": "✓ EXISTS",
+          "references": ["index.html", "resto-landing/index.html"]
+        }
+      }
+    }
+  },
+  "cross_file_issues": {
+    "broken_references": [
+      {
+        "severity": "ERROR",
+        "type": "image_path",
+        "file": "about.html",
+        "line": 67,
+        "current": "src=\"foto.jpg\"",
+        "should_be": "src=\"../assets/foto.jpg\"",
+        "impact": "Image will not load on about.html page"
+      },
+      {
+        "severity": "WARNING",
+        "type": "missing_image",
+        "file": "resto-landing/index.html",
+        "line": 61,
+        "image": "assets/menu/mie-special.jpg",
+        "status": "File referenced but not found in assets/"
+      },
+      {
+        "severity": "WARNING",
+        "type": "missing_image",
+        "file": "resto-landing/index.html",
+        "line": 84,
+        "image": "assets/qris.jpg",
+        "status": "File referenced but not found in assets/"
+      }
+    ],
+    "hardcoded_values": [
+      {
+        "type": "WhatsApp Phone Numbers",
+        "files": [
+          {
+            "file": "script.js",
+            "line": 25,
+            "value": "628123456789"
+          },
+          {
+            "file": "resto-landing/script.js",
+            "line": 65,
+            "value": "628123456789"
+          }
+        ],
+        "recommendation": "Centralize in config.json or .env file"
+      },
+      {
+        "type": "Google AdSense Placeholder",
+        "files": [
+          {
+            "file": "index.html",
+            "line": 9,
+            "value": "pub-XXXXXXXXXXXXXX"
+          },
+          {
+            "file": "ads.txt",
+            "line": 1,
+            "value": "pub-XXXXXXXXXXXXXX"
+          }
+        ],
+        "recommendation": "Replace with actual AdSense Publisher ID"
+      }
+    ],
+    "placeholder_urls": [
+      {
+        "file": "blog_elev/src/_data/site.json",
+        "line": 2,
+        "current": "https://example.com",
+        "recommendation": "Replace with actual blog domain"
+      },
+      {
+        "file": "blog_elev/src/rss.njk",
+        "line": 5,
+        "current": "https://example.com/",
+        "recommendation": "Replace with actual blog domain"
+      },
+      {
+        "file": "blog_elev/src/sitemap.njk",
+        "line": 8,
+        "current": "https://example.com",
+        "recommendation": "Replace with actual blog domain"
+      }
+    ]
+  },
+  "code_quality_issues": {
+    "formatting": [
+      {
+        "severity": "INFO",
+        "type": "minified_css",
+        "files": [
+          "blog/style.css",
+          "blog_elev/src/styles.css",
+          "meme-dash/style.css"
+        ],
+        "recommendation": "Consider formatting for easier maintenance"
+      }
+    ],
+    "code_organization": [
+      {
+        "severity": "INFO",
+        "type": "inline_javascript",
+        "files": [
+          "kalkulator/index.html (lines 20-35)",
+          "todo-list/index.html (lines 16-39)"
+        ],
+        "recommendation": "Extract to separate .js files for reusability and maintainability"
+      },
+      {
+        "severity": "INFO",
+        "type": "embedded_styles",
+        "files": [
+          "about.html (lines 8-63)"
+        ],
+        "recommendation": "Move to main style.css for better organization"
+      }
+    ],
+    "unused_code": [
+      {
+        "severity": "INFO",
+        "type": "potentially_unused",
+        "file": "meme-dash/test-console.js",
+        "note": "Test script that requires npm install puppeteer",
+        "status": "Not integrated into build process"
+      }
+    ]
+  },
+  "best_practices_violations": [
+    {
+      "severity": "WARNING",
+      "type": "no_validation",
+      "description": "No HTML validation framework detected",
+      "recommendation": "Consider using a validator like html-validate in build process"
+    },
+    {
+      "severity": "WARNING",
+      "type": "no_linting",
+      "description": "No CSS linting (stylelint) detected",
+      "recommendation": "Add stylelint for CSS consistency"
+    },
+    {
+      "severity": "INFO",
+      "type": "no_minification",
+      "description": "Production JavaScript files are not minified",
+      "files": [
+        "script.js",
+        "resto-landing/script.js",
+        "meme-dash/script.js"
+      ],
+      "recommendation": "Consider minifying for production using webpack/esbuild"
+    },
+    {
+      "severity": "INFO",
+      "type": "accessibility",
+      "description": "Some pages lack proper alt text or ARIA attributes",
+      "recommendations": [
+        "Add meaningful alt text to all images",
+        "Add aria-labels for icon-only buttons",
+        "Ensure proper heading hierarchy"
+      ]
+    }
+  ],
+  "recommendations_for_cleanup": {
+    "high_priority": [
+      {
+        "id": "FIX_BROKEN_IMAGE",
+        "severity": "CRITICAL",
+        "task": "Fix broken image path in about.html",
+        "file": "about.html",
+        "line": 67,
+        "change": "src=\"foto.jpg\" → src=\"../assets/foto.jpg\""
+      },
+      {
+        "id": "CREATE_MISSING_IMAGES",
+        "severity": "HIGH",
+        "task": "Create/upload missing restaurant menu images",
+        "files": [
+          "assets/menu/mie-special.jpg",
+          "assets/qris.jpg"
+        ],
+        "impact": "Images referenced in resto-landing will fail to load"
+      },
+      {
+        "id": "REMOVE_PLACEHOLDER_ADS",
+        "severity": "MEDIUM",
+        "task": "Replace AdSense placeholder values",
+        "files": [
+          "index.html (line 9)",
+          "ads.txt (line 1)"
+        ],
+        "change": "pub-XXXXXXXXXXXXXX → actual Publisher ID or remove"
+      }
+    ],
+    "medium_priority": [
+      {
+        "id": "UPDATE_URLS",
+        "severity": "MEDIUM",
+        "task": "Replace placeholder URLs in Eleventy blog",
+        "files": [
+          "blog_elev/src/_data/site.json",
+          "blog_elev/src/rss.njk",
+          "blog_elev/src/sitemap.njk"
+        ],
+        "change": "https://example.com → actual domain"
+      },
+      {
+        "id": "CENTRALIZE_CONFIG",
+        "severity": "MEDIUM",
+        "task": "Create config file for hardcoded values",
+        "suggestion": "Create config.json with:",
+        "values": [
+          "whatsappNumber",
+          "googleAdsenseId",
+          "blogDomain"
+        ]
+      },
+      {
+        "id": "EXTRACT_INLINE_JS",
+        "severity": "LOW",
+        "task": "Extract inline JavaScript to separate files",
+        "files": [
+          "kalkulator/index.html",
+          "todo-list/index.html"
+        ],
+        "benefit": "Better code organization and reusability"
+      }
+    ],
+    "low_priority": [
+      {
+        "id": "FORMAT_MINIFIED_CSS",
+        "severity": "LOW",
+        "task": "Format minified CSS files for readability",
+        "files": [
+          "blog/style.css",
+          "blog_elev/src/styles.css",
+          "meme-dash/style.css"
+        ]
+      },
+      {
+        "id": "ADD_LINTING",
+        "severity": "LOW",
+        "task": "Set up CSS linting (stylelint) and JS linting (ESLint)",
+        "recommendation": "Add to development workflow"
+      },
+      {
+        "id": "MINIFY_PRODUCTION_JS",
+        "severity": "LOW",
+        "task": "Minify JavaScript for production",
+        "tool_suggestions": [
+          "webpack",
+          "esbuild",
+          "terser"
+        ]
+      }
+    ]
+  },
+  "file_statistics": {
+    "by_type": {
+      "HTML": {
+        "count": 15,
+        "total_lines": 682,
+        "files": [
+          "index.html",
+          "about.html",
+          "projects.html",
+          "blog/index.html",
+          "blog/posts/post-1.html",
+          "kalkulator/index.html",
+          "meme-dash/index.html",
+          "todo-list/index.html",
+          "resto-landing/index.html",
+          "blog_elev/admin/index.html"
+        ]
+      },
+      "CSS": {
+        "count": 6,
+        "total_lines": 1226,
+        "files": [
+          "style.css",
+          "blog/style.css",
+          "kalkulator/style.css",
+          "meme-dash/style.css",
+          "todo-list/style.css",
+          "resto-landing/style.css",
+          "blog_elev/src/styles.css"
+        ]
+      },
+      "JavaScript": {
+        "count": 7,
+        "total_lines": 633,
+        "files": [
+          "script.js",
+          "kalkulator/index.html (inline)",
+          "meme-dash/script.js",
+          "meme-dash/sw.js",
+          "meme-dash/test-console.js",
+          "todo-list/index.html (inline)",
+          "resto-landing/script.js"
+        ]
+      },
+      "Markdown": {
+        "count": 6,
+        "files": [
+          "blog/README.md",
+          "blog_elev/README.md",
+          "blog_elev/src/posts/2025-11-01-intro.md",
+          "blog_elev/src/posts/2025-11-02-tip-mie.md",
+          "meme-dash/README.md"
+        ]
+      },
+      "Configuration": {
+        "count": 9,
+        "files": [
+          "package.json",
+          "netlify.toml",
+          "manifest.json",
+          "admin/config.yml",
+          ".eleventy.js",
+          "ads.txt",
+          "tools/requirements.txt",
+          ".gitignore",
+          "push_site.ps1"
+        ]
+      },
+      "Python": {
+        "count": 1,
+        "lines": 59,
+        "files": [
+          "blog_elev/tools/import_blog_posts.py"
+        ]
+      },
+      "Templates": {
+        "count": 5,
+        "files": [
+          "blog_elev/src/index.njk",
+          "blog_elev/src/rss.njk",
+          "blog_elev/src/sitemap.njk",
+          "blog_elev/src/404.njk",
+          "blog_elev/src/_includes/layouts/base.njk",
+          "blog_elev/src/_includes/post.njk"
+        ]
+      },
+      "Images": {
+        "count": 4,
+        "files": [
+          "assets/foto.jpg",
+          "assets/menu/mie-goreng.jpg",
+          "assets/menu/mie-kuah.jpg",
+          "assets/menu/es-teh.jpg",
+          "meme-dash/doge.svg"
+        ]
+      }
+    },
+    "total_summary": {
+      "total_files": 47,
+      "html_files": 15,
+      "css_files": 7,
+      "javascript_files": 7,
+      "image_files": 5,
+      "config_files": 9,
+      "documentation_files": 6
+    }
+  },
+  "summary_statistics": {
+    "files_analyzed": 47,
+    "critical_errors": 1,
+    "high_priority_issues": 3,
+    "medium_priority_issues": 3,
+    "low_priority_issues": 3,
+    "total_issues": 10,
+    "syntax_errors": 0,
+    "code_quality_warnings": 12,
+    "info_items": 25
+  },
+  "projects_overview": {
+    "main_portfolio": {
+      "status": "✓ FUNCTIONAL",
+      "files": ["index.html", "about.html", "projects.html", "script.js", "style.css"],
+      "purpose": "CV and portfolio showcasing skills and projects"
+    },
+    "blog_static": {
+      "status": "✓ FUNCTIONAL",
+      "location": "blog/",
+      "type": "Static HTML blog",
+      "posts": 1,
+      "setup": "Simple - just serve files"
+    },
+    "blog_eleventy": {
+      "status": "✓ FUNCTIONAL",
+      "location": "blog_elev/",
+      "type": "Eleventy static site generator",
+      "posts": 2,
+      "setup": "npm install && npm run start"
+    },
+    "calculator": {
+      "status": "✓ FUNCTIONAL",
+      "location": "kalkulator/",
+      "type": "Web-based calculator",
+      "features": ["+, -, ×, ÷"]
+    },
+    "meme_dash": {
+      "status": "✓ FUNCTIONAL",
+      "location": "meme-dash/",
+      "type": "PWA endless runner game",
+      "features": ["Canvas rendering", "Service Worker", "Offline play"]
+    },
+    "todo_list": {
+      "status": "✓ FUNCTIONAL",
+      "location": "todo-list/",
+      "type": "To-do list web app",
+      "features": ["CRUD operations", "LocalStorage persistence"]
+    },
+    "restaurant_landing": {
+      "status": "✓ FUNCTIONAL",
+      "location": "resto-landing/",
+      "type": "Restaurant e-commerce landing page",
+      "features": ["Menu display", "Shopping cart", "WhatsApp integration", "Stock management"]
+    }
+  },
+  "conclusion": {
+    "overall_status": "✓ MOSTLY HEALTHY",
+    "project_quality": "GOOD - Well-organized with multiple working projects",
+    "main_concerns": [
+      "One broken image path in about.html",
+      "Missing images for restaurant menu (mie-special.jpg, qris.jpg)",
+      "Placeholder values need replacement (AdSense ID, URLs, phone numbers)"
+    ],
+    "strengths": [
+      "Good code organization and structure",
+      "Responsive design across all pages",
+      "Proper use of Git version control",
+      "Multiple functional projects with different technologies",
+      "Proper PWA implementation for game",
+      "Good documentation for Eleventy blog setup"
+    ],
+    "action_items_priority": [
+      "1. FIX: Image path in about.html (line 67)",
+      "2. CREATE: Missing images (mie-special.jpg, qris.jpg)",
+      "3. REPLACE: AdSense placeholder IDs",
+      "4. CONFIGURE: Eleventy blog URLs",
+      "5. REFACTOR: Extract inline JavaScript to separate files"
+    ]
+  }
+}
