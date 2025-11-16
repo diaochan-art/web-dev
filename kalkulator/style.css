@@ -1,6 +1,94 @@
-body { background: #764ba2; color: white; text-align: center; padding: 50px; font-family: Arial; }
-.container { max-width: 400px; margin: auto; background: rgba(0,0,0,0.2); padding: 40px; border-radius: 20px; }
-input { padding: 15px; width: 100%; margin: 10px 0; border-radius: 50px; border: none; text-align: center; font-size: 18px; }
-.ops button { background: #10b981; color: white; padding: 15px 20px; border: none; border-radius: 50px; margin: 5px; width: 60px; font-size: 20px; }
-#result { font-size: 24px; margin: 20px 0; font-weight: bold; }
-.back { background: #667eea; display: block; margin: 20px auto; width: 70%; text-decoration: none; padding: 15px; border-radius: 50px; }
+/* KALKULATOR STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #764ba2;
+  color: white;
+  text-align: center;
+  padding: 50px;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+input {
+  padding: 15px;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 50px;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.ops {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ops button {
+  background: #10b981;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 50px;
+  width: 60px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.ops button:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+#result {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.back {
+  background: #667eea;
+  display: block;
+  margin: 20px auto;
+  width: 70%;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 50px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.back:hover {
+  background: #5a67d8;
+  transform: translateY(-2px);
+}

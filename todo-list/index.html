@@ -10,7 +10,7 @@
   <div class="container">
     <h1>✅ To-Do List Gue</h1>
     <div class="input-group">
-      <input type="text" id="task" placeholder="Tugas baru...">
+      <input type="text" id="task" placeholder="Tugas baru..."/>
       <button onclick="tambah()">Tambah</button>
     </div>
     <ul id="list"></ul>
@@ -18,4 +18,35 @@
   </div>
 
   <script>
-    const list = document.get
+    const listEl = document.getElementById('list');
+    const taskInput = document.getElementById('task');
+
+    function tambah() {
+      const taskText = taskInput.value.trim();
+      if (taskText === '') return;
+
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span onclick="toggle(this)">${taskText}</span>
+        <button class="del" onclick="hapus(this)">✕</button>
+      `;
+      listEl.appendChild(li);
+      taskInput.value = '';
+      taskInput.focus();
+    }
+
+    function toggle(span) {
+      span.parentElement.classList.toggle('done');
+    }
+
+    function hapus(btn) {
+      btn.parentElement.remove();
+    }
+
+    // Enter key to add
+    taskInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') tambah();
+    });
+  </script>
+</body>
+</html>

@@ -9,8 +9,8 @@
 <body>
   <div class="container">
     <h1>🧮 Kalkulator Sederhana</h1>
-    <input type="number" id="num1" placeholder="Angka 1">
-    <input type="number" id="num2" placeholder="Angka 2">
+    <input type="number" id="num1" placeholder="Angka 1" />
+    <input type="number" id="num2" placeholder="Angka 2" />
     <div class="ops">
       <button onclick="hitung('+')">+</button>
       <button onclick="hitung('-')">-</button>
@@ -26,10 +26,12 @@
       const a = parseFloat(document.getElementById('num1').value) || 0;
       const b = parseFloat(document.getElementById('num2').value) || 0;
       let hasil = 0;
+
       if (op === '+') hasil = a + b;
       else if (op === '-') hasil = a - b;
       else if (op === '*') hasil = a * b;
       else if (op === '/') hasil = b !== 0 ? (a / b).toFixed(2) : 'Error';
+
       document.getElementById('result').textContent = `Hasil: ${hasil}`;
     }
   </script>
