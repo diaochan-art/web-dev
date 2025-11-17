@@ -16,20 +16,20 @@ if (toggle) {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
     localStorage.setItem('darkMode', isDark);
-    toggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    toggle.textContent = isDark ? '☀️' : '🌙 ';
   });
 
   // Apply saved dark mode preference
   if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
-    toggle.textContent = '☀️ Light Mode';
+    toggle.textContent = '☀️';
   }
 }
 
 // ========== PESAN VIA WHATSAPP ==========
 document.querySelectorAll('.resto-cta').forEach(btn => {
   btn.addEventListener('click', () => {
-    const phone = '628123456789'; // GANTI NOMOR WA LU!
+    const phone = '6283899610929'; // GANTI NOMOR WA LU!
     const message = 'Halo Mie Fakih! Saya mau pesan:';
     window.open(
       `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
