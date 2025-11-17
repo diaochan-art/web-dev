@@ -254,7 +254,7 @@ startBtn.onclick = () => {
   startMenu.style.display = 'none';
   gameRunning = true;
   score = 0;
-  speed = 5;
+  speed = 3;
   obstacles = [];
   coins = [];
   particles = [];
