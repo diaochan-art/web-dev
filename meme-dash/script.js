@@ -17,7 +17,7 @@ function resize() {
 }
 
 let player = { x: 100, y: 0, width: 60, height: 60, velY: 0, lane: 1, jumping: false, frame: 0 };
-let obstacles = [], coins = [], particles = [], speed = 5, score = 0, gameRunning = false, gravity = 1.2, jumpPower = -22;
+let obstacles = [], coins = [], particles = [], speed = 3, score = 0, gameRunning = false, gravity = 1.2, jumpPower = -22;
 let highscore = parseInt(localStorage.getItem('memeHigh')) || 0;
 highscoreEl.textContent = `Best: ${highscore}`;
 let lanes = [], wowFlash = 0;
